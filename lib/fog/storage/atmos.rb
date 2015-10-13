@@ -29,6 +29,7 @@ module Fog
         ENDPOINT_REGEX = /(https*):\/\/([a-zA-Z0-9\.\-]+)(:[0-9]+)?(\/.*)?/
 
         def ssl?
+          Rails.logger.info "Endpoint is #{@endpoint}"
           protocol = @endpoint.match(ENDPOINT_REGEX)[1]
           raise ArgumentError, 'Invalid endpoint URL' if protocol.nil?
 
